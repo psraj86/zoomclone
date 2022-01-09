@@ -8,13 +8,18 @@ const items = [
     { id: 3, name: 'calendar', title: 'Schedule' },
     { id: 4, name: 'upload', title: 'Share Screen' },
 ];
-export default function MenuButton() {
+export default function MenuButton({ navigation }) {
+
+    const openMeeting = () => {
+        navigation.navigate('Room')
+    }
     return (
         <View style={styles.container}>
             {/* One Button */}
             {items.map(item => (
                 <View key={item.id} style={styles.buttonContainer}>
                     <TouchableOpacity
+                        onPress={() => openMeeting()}
                         style={{
                             ...styles.button,
                             backgroundColor: item.customColor ? item.customColor : '#0470DC'
